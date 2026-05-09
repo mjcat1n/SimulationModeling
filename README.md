@@ -36,7 +36,10 @@ SimulationModeling/
 │           ├── EventTest.java
 │           ├── EventQueueTest.java
 │           ├── SimulationTest.java
-│           └── StatisticsTest.java
+│           ├── StatisticsTest.java
+│           └── examples/
+│               ├── BirthdayCollisionSimulationTest.java
+│               └── NonUniformBirthdaySimulationTest.java
 └── docs/                  # Generated Javadoc (not committed)
 ```
 
@@ -71,6 +74,7 @@ ant test
 # 3. Try the small example simulations
 java -cp build/classes simulation.examples.CountdownSimulation
 java -cp build/classes simulation.examples.BirthdayCollisionSimulation 23
+java -cp build/classes simulation.examples.NonUniformBirthdaySimulation 22 10000 1
 
 # 4. Run the full quality pipeline
 ant quality
@@ -130,14 +134,26 @@ Monte Carlo example that estimates the probability of at least two people
 sharing a birthday in a group of size `k`. It runs the estimate for 100, 1,000,
 and 10,000 trials.
 
+See `src/main/java/simulation/examples/NonUniformBirthdaySimulation.java` for
+an extended birthday-problem model where birthdays are not equally likely.
+Each month is assigned a relative birth weight, making days in high-weight
+months more probable than days in low-weight months. It accepts three optional
+arguments — group size, trial count, and random seed — and defaults to group
+size 22, 10,000 trials, and seed 1:
+
+```bash
+java -cp build/classes simulation.examples.NonUniformBirthdaySimulation [groupSize] [trialCount] [seed]
+```
+
 ## Suggested First Student Tasks
 
 1. Run `ant test` and confirm all tests pass.
 2. Run `simulation.examples.CountdownSimulation`.
 3. Run `simulation.examples.BirthdayCollisionSimulation` with a few group sizes.
-4. Change an example parameter and rerun the example.
-5. Create a new simulation package for your assigned model.
-6. Add tests for any behavior you add or change.
+4. Run `simulation.examples.NonUniformBirthdaySimulation` with a few group sizes and compare results to the uniform model.
+5. Change an example parameter and rerun the example.
+6. Create a new simulation package for your assigned model.
+7. Add tests for any behavior you add or change.
 
 ## Repository Hygiene
 
