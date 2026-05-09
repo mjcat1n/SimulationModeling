@@ -32,7 +32,7 @@ SimulationModeling/
 │           └── Statistics.java    # Online statistics collector
 ├── test/
 │   └── java/
-│       └── simulation/2
+│       └── simulation/
 │           ├── EventTest.java
 │           ├── EventQueueTest.java
 │           ├── SimulationTest.java
