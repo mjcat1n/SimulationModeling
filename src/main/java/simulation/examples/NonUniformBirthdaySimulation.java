@@ -14,6 +14,8 @@ import simulation.Simulation;
  * in low-weight months.
  *
  * <p>Run it after compiling with:
+ *
+ * @author Matt Cantin
  * <pre>{@code
  * java -cp build/classes simulation.examples.NonUniformBirthdaySimulation 22 10000 1
  * }</pre>

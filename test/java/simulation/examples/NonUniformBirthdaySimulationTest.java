@@ -12,6 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Unit tests for {@link NonUniformBirthdaySimulation}.
+ *
+ * @author Matt Cantin
  */
 @DisplayName("NonUniformBirthdaySimulation")
 class NonUniformBirthdaySimulationTest {
