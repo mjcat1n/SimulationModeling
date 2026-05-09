@@ -77,7 +77,7 @@ public final class NonUniformBirthdaySimulation extends Simulation {
             int groupSize,
             int trialCount,
             long seed,
-            double[] monthWeights) {
+            double... monthWeights) {
         if (groupSize < 1) {
             throw new IllegalArgumentException("Group size must be at least one: " + groupSize);
         }
@@ -144,7 +144,7 @@ public final class NonUniformBirthdaySimulation extends Simulation {
      * @return cumulative probability array for days 0 through 364
      * @throws IllegalArgumentException if the weights are invalid
      */
-    public static double[] buildCumulativeDayProbabilities(double[] monthWeights) {
+    public static double[] buildCumulativeDayProbabilities(double... monthWeights) {
         validateMonthWeights(monthWeights);
 
         double totalWeight = 0.0;
@@ -180,7 +180,7 @@ public final class NonUniformBirthdaySimulation extends Simulation {
     public static boolean hasSharedBirthday(
             int groupSize,
             Random random,
-            double[] cumulativeDayProbabilities) {
+            double... cumulativeDayProbabilities) {
         if (groupSize < 1) {
             throw new IllegalArgumentException("Group size must be at least one: " + groupSize);
         }
@@ -207,7 +207,7 @@ public final class NonUniformBirthdaySimulation extends Simulation {
      * @param cumulativeDayProbabilities cumulative distribution over 365 birthdays
      * @return day index from 0 through 364
      */
-    public static int drawBirthday(Random random, double[] cumulativeDayProbabilities) {
+    public static int drawBirthday(Random random, double... cumulativeDayProbabilities) {
         if (random == null) {
             throw new NullPointerException("Random source must not be null");
         }
@@ -297,7 +297,7 @@ public final class NonUniformBirthdaySimulation extends Simulation {
         }
     }
 
-    private static void validateMonthWeights(double[] monthWeights) {
+    private static void validateMonthWeights(double... monthWeights) {
         if (monthWeights == null) {
             throw new NullPointerException("Month weights must not be null");
         }
@@ -317,7 +317,7 @@ public final class NonUniformBirthdaySimulation extends Simulation {
         }
     }
 
-    private static void validateCumulativeDayProbabilities(double[] cumulativeDayProbabilities) {
+    private static void validateCumulativeDayProbabilities(double... cumulativeDayProbabilities) {
         if (cumulativeDayProbabilities == null) {
             throw new NullPointerException("Cumulative probabilities must not be null");
         }
